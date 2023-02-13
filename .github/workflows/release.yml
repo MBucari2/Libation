@@ -60,4 +60,4 @@ jobs:
 
       - name: Upload release assets
         run: |
-          for f in ./artifacts/*; do gh release upload v${{ needs.prerelease.outputs.version }} $f";  done
+          for f in ./artifacts/*; do gh release upload v${{ needs.prerelease.outputs.version }} $f;  done
