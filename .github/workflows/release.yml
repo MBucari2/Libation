@@ -59,5 +59,7 @@ jobs:
           prerelease: false
 
       - name: Upload release assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           for f in ./artifacts/*; do gh release upload v${{ needs.prerelease.outputs.version }} $f;  done
