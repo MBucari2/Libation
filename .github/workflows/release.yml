@@ -59,9 +59,5 @@ jobs:
           prerelease: false
 
       - name: Upload release assets
-        uses: dwenegar/upload-release-assets@v1
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-        with:
-          release_id: '${{ steps.release.outputs.id }}'
-          assets_path: ./artifacts
+        run: |
+          for f in ./artifacts/*; do gh release upload v${{ needs.prerelease.outputs.version }} $f";  done
